@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoint:
+    gateway:
+      enabled: true
+#  endpoints:
+#    web:
+#      exposure:
+#        exclude: *
+
+
+
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: apigateway-service
+  cloud:
+    gateway:
+      metrics:
+        enabled: true
+#      routes:
+#        - id: spring-service
+#          uri: lb://SPRING-SERVICE
+#          predicates:
+#            - path=/spring-service/**
+#      routes:
+#        - id: sample-api
+#          uri: http://localhost:8081
+#          predicates:
+#            - Path=/sample-api/**
